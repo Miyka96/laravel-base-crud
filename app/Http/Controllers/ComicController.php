@@ -25,7 +25,7 @@ class ComicController extends Controller
      */
     public function create()
     {
-        //
+        return view('comics.create');
     }
 
     /**
@@ -47,7 +47,13 @@ class ComicController extends Controller
      */
     public function show($id)
     {   
-        $comics = comic::find($id);
+        try {
+            $comics = comic::findOrFail($id);
+        } catch (\Exception $e) {
+           return view('404');
+        }
+
+
         return view('comics.show', compact('comics'));
     }
 

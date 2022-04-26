@@ -10,6 +10,7 @@
     <nav>
         <ul>
             <li> <a href="{{route('Comic.index')}}"> Home</a></li>
+            <li> <a href="{{route('Comic.create')}}">Crea nuovo Comic</a></li>
         </ul>
     </nav>
     <div class="container">
