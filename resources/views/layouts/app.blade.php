@@ -9,7 +9,7 @@
 <body>
     <nav>
         <ul>
-            <li>Home</li>
+            <li> <a href="{{route('Comic.index')}}"> Home</a></li>
         </ul>
     </nav>
     <div class="container">
