@@ -6,6 +6,7 @@
 </div>
 <div class="container">
     <form action="{{route('Comic.store')}}" method="POST">
+        @csrf
         <div>
             <label for="title">Titolo</label>
             <input type="text" name="title" id="title" placeholder="Inserisci il titolo">

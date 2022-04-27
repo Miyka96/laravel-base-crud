@@ -16,6 +16,14 @@
             <td>{{$el->series}}</td>
             <td> <img src="{{$el->thumb}}"> </td>
             <td> <button> <a href="{{route('Comic.show', $el->id)}}">Visualizza</a></button> </td>
+            <td> <button> <a href="{{route('Comic.edit', $el->id)}}">Modifica</a></button></td>
+            <td>
+                <form action="{{route('Comic.destroy', $el->id)}}" method="post">
+                    @csrf
+                    @method ('delete')
+                    <button type="submit" onclick="return confirm('Sicuro di voler cancellare?')">Cancella</button>
+                </form>
+            </td>
         </tr>
         @endforeach
         </tbody>

@@ -12,7 +12,7 @@
 <h4>
     Series: {{$comics->series}}  <br>
     Type: {{$comics->type}}
-    SaleDate: {{$comics->saleDate}}
+    SaleDate: {{$comics->sale_date}}
 </h4>
 <p>{{$comics->description}}</p>
 
