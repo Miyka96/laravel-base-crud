@@ -7,42 +7,54 @@
 <div class="container">
     <form action="{{route('Comic.store')}}" method="POST">
         @csrf
-        <div>
+        <div class="form-group">
             <label for="title">Titolo</label>
-            <input type="text" name="title" id="title" placeholder="Inserisci il titolo">
+            <input class="form-control" type="text" name="title" id="title" placeholder="Inserisci il titolo" value="{{old('title')}}">
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="description"> Descrizione </label>
-            <textarea id="description" name="description" maxlength="200" placeholder="Inserisci la descrizione"></textarea>
+            <textarea class="form-control" id="description" name="description" maxlength="200" placeholder="Inserisci la descrizione">
+                {{old('description')}}
+            </textarea>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="thumb">Immagine</label>
-            <input type="text" name="thumb" id="thumb" placeholder="Inserisci url immagine">
+            <input class="form-control" type="text" name="thumb" id="thumb" placeholder="Inserisci url immagine" value="{{old('thumb')}}">
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="price">Prezzo</label>
-            <input type="number" step="any" min="0" id="price" name="price">
+            <input class="form-control" type="number" step="any" min="0" id="price" name="price" value="{{old('price')}}">
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="series">Serie</label>
-            <input type="text" name="series" id="series" placeholder="Inserisci la serie">
+            <input class="form-control" type="text" name="series" id="series" placeholder="Inserisci la serie" value="{{old('series')}}">
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="sale_date">Data di vendita</label>
-            <input type="date" name="sale_date" id="sale_date" format="yyyy-MM-dd">
+            <input class="form-control" type="date" name="sale_date" id="sale_date" format="yyyy-MM-dd" value="{{old('sale_date')}}">
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="type">Tipologia</label>
-            <input type="text" name="type" id="type" placeholder="Inserisci la tipologia">
+            <input class="form-control" type="text" name="type" id="type" placeholder="Inserisci la tipologia" value="{{old('type')}}">
         </div>
 
         <button type="submit">Crea</button>
+
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
     </form>
 </div>
 

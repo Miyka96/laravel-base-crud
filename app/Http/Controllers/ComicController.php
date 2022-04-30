@@ -35,7 +35,16 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $request->validate([
+            'title'=>'required|string|min:3',
+            'description'=>'nullable|string',
+            'thumb'=>'required|url',
+            'price'=>'required|numeric|min:0',
+            'series'=>'required|string|min:3',
+            'sale_date'=>'required|date',
+            'type'=>'required|string|min:3'
+        ]);
         $data = $request->all();
         $comic = new comic;
         $comic->fill($data);
@@ -83,6 +92,15 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title'=>'required|string|min:3',
+            'description'=>'nullable|string',
+            'thumb'=>'required|url',
+            'price'=>'required|numeric|min:0',
+            'series'=>'required|string|min:3',
+            'sale_date'=>'required|date',
+            'type'=>'required|string|min:3'
+        ]);
         $data = $request->all();
         $comic = Comic::findOrFail($id);
         $comic->update($data);

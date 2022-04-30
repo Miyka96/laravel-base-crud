@@ -2,7 +2,7 @@
 
 @section('content')
 
-<img src="{{$comics->thumb}}" alt="">
+<img class="img-thumbnail " src="{{$comics->thumb}}" alt="">
 <h1>
     {{$comics->title}}
 </h1>

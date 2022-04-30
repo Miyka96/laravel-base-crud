@@ -14,7 +14,7 @@
             <td>{{$el->title}}</td>
             <td>{{$el->price}}</td>
             <td>{{$el->series}}</td>
-            <td> <img src="{{$el->thumb}}"> </td>
+            <td> <img class="img-thumbnail" src="{{$el->thumb}}"> </td>
             <td> <button> <a href="{{route('Comic.show', $el->id)}}">Visualizza</a></button> </td>
             <td> <button> <a href="{{route('Comic.edit', $el->id)}}">Modifica</a></button></td>
             <td>
